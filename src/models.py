@@ -29,5 +29,17 @@ class Address(Base):
     def to_dict(self):
         return {}
 
+
+class Vehicles(Base):
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    model = Column(String(250), nullable=False)
+    vehicle_class = Column(String(250), nullable=False)
+    manufacturer = Column(String(250), nullable=False)
+    length = Column(String(250), nullable=False)
+    cost_in_credits = Column(String(250), nullable=False) 
+
+
+
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
