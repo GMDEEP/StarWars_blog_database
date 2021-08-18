@@ -96,20 +96,79 @@ class People(Base):
     created = Column(String(250), nullable=False) 
     edited = Column(String(250), nullable=False) 
 
-class PeopleSpecies
+class PeopleSpecies(Base):
     __tablename__ = 'peoplespecies'
     people = relationship(People)
 
 
-class PeopleStarships
+class PeopleStarships(Base):
     __tablename__ = 'peoplestarships'
     people = relationship(People)
+    
 
 
 class PeopleVehicles(Base):
     __tablename__ = 'peoplevehicles'
     people = relationship(People)
 
+
+class Planets(Base):
+    __tablename__ = 'planets'
+    id = Column(Integer, primary_key=True)
+    name =  Column(String(250), nullable=False) 
+    diameter = Column(String(250), nullable=False) 
+    rotation_period = Column(String(250), nullable=False) 
+    orbital_period = Column(String(250), nullable=False) 
+    gravity = Column(String(250), nullable=False) 
+    population = Column(String(250), nullable=False) 
+    climate = Column(String(250), nullable=False) 
+    terrain = Column(String(250), nullable=False) 
+    surface_water = Column(String(250), nullable=False) 
+    films = Column(Integer, ForeignKey('films'))
+    url = Column(String(250), nullable=False) 
+    # created = Date
+    # edited = Date
+
+
+class Films(Base):
+    __tablename__ = 'films'
+    id = Column(Integer, primary_key=True)
+    title = Column(String(250), nullable=False) 
+    # episode_id = Column(Integer, ForeignKey())
+    opening_crawl = Column(String(250), nullable=False) 
+    director = Column(String(250), nullable=False) 
+    producer = Column(String(250), nullable=False) 
+    # release_date = Date
+    # species = Column(Integer, ForeignKey('species.id'))
+    starships = Column(Integer, ForeignKey('starship.id'))
+    vehicles = Column(Integer, ForeignKey('vehicle.id'))
+    planets = Column(Integer, ForeignKey('planets.id'))
+    url = Column(String(250), nullable=False) 
+    # created = Date
+    # edited = Date
+
+
+class Starships(Base):
+    __tablename__ = 'starships'
+    id = Column(Integer, primary_key=True)
+    name =  Column(String(250), nullable=False) 
+    model = Column(String(250), nullable=False) 
+    starship_class = Column(String(250), nullable=False) 
+    manufacturer = Column(String(250), nullable=False) 
+    cost_in_credits = Column(String(250), nullable=False) 
+    length = Column(String(250), nullable=False) 
+    crew = Column(String(250), nullable=False) 
+    passengers = Column(String(250), nullable=False) 
+    max_atmosphere_speed = Column(String(250), nullable=False) 
+    hyperdrive_rating = Column(String(250), nullable=False) 
+    MGLT = Column(String(250), nullable=False) 
+    cargo_capacity = Column(String(250), nullable=False) 
+    consumables = Column(String(250), nullable=False) 
+    films = Column(String(250), nullable=False) 
+    pilots = Column(String(250), nullable=False) 
+    url = Column(String(250), nullable=False) 
+    created = Column(String(250), nullable=False) 
+    edited = Column(String(250), nullable=False) 
 
 
 
